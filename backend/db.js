@@ -1,6 +1,6 @@
 const mongoose = require('mongoose')
 // const mongoDbClient = require("mongodb").MongoClient
-const mongoURI = 'mongodb+srv://parthivkevadiya:aPhXHj718ERcyHjr@cluster0.ftkyalk.mongodb.net/Gofood' // Customer change url to your db you created in atlas
+const mongoURI = 'mongodb+srv://parthivkevadiya:H42Ezri6Qi3eaWNq@cluster0.sl3nsau.mongodb.net/fooddata' // Customer change url to your db you created in atlas
 // mongodb://<username>:<password>@merncluster-shard-00-00.d1d4z.mongodb.net:27017,merncluster-shard-00-01.d1d4z.mongodb.net:27017,merncluster-shard-00-02.d1d4z.mongodb.net:27017/?ssl=true&replicaSet=atlas-eusy5p-shard-0&authSource=admin&retryWrites=true&w=majority
 module.exports = function (callback) {
     mongoose.connect(mongoURI, { useNewUrlParser: true }, async (err, result) => {
@@ -9,7 +9,7 @@ module.exports = function (callback) {
         else {
             // var database =
             console.log("connected to mongo")
-            const foodCollection = await mongoose.connection.db.collection("fooddata");
+            const foodCollection = await mongoose.connection.db.collection("food_data");
             foodCollection.find({}).toArray(async function (err, data) {
              
                 const categoryCollection = await mongoose.connection.db.collection("food_category");
